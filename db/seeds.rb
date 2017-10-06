@@ -61,6 +61,14 @@ topics = Topic.all
       password: 'helloworld'
     )
 
+# Create an moderator user
+    admin = User.create!(
+    name:     'Moderator User',
+    email:    'mod@example.com',
+    password: 'helloworld',
+    role:     'moderator'
+    )
+
  puts "Seed finished"
  puts "#{User.count} users created"
  puts "#{Topic.count} topics created"
