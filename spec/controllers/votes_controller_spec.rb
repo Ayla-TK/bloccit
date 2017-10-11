@@ -7,7 +7,7 @@ include SessionsHelper
    let(:my_user) { FactoryGirl.create(:user) }
    let(:other_user) { FactoryGirl.create(:user) }
    let(:user_post) { FactoryGirl.create(:post, topic: my_topic, user: other_user) }
-   let(:my_vote) { Vote.create!(value: 1) }
+   let(:my_vote) { FactoryGirl.create(:vote) }
 
    context "guest" do
      describe "POST up_vote" do

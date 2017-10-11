@@ -4,7 +4,7 @@ RSpec.describe Vote, type: :model do
     let(:topic) { FactoryGirl.create(:topic) }
     let(:user) { FactoryGirl.create(:user) }
     let(:post) { FactoryGirl.create(:post) }
-    let(:vote) { Vote.create!(value: 1, post: post, user: user) }
+    let(:vote) { FactoryGirl.create(:vote) }
 
    it { is_expected.to belong_to(:post) }
    it { is_expected.to belong_to(:user) }
@@ -18,7 +18,7 @@ RSpec.describe Vote, type: :model do
      end
 
      it "#update_post should call update_rank on post " do
-       expect(post).to receive(:update_rank).at_least(:once)
+       expect(vote.post).to receive(:update_rank).at_least(:once)
        vote.save!
      end
    end
