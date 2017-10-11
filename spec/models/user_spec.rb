@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { create(:user) }
+  let(:user) { FactoryGirl.create(:user) }
    it { is_expected.to have_many(:posts) }
    it { is_expected.to have_many(:comments) }
    it { is_expected.to have_many(:votes) }
@@ -71,8 +71,8 @@ RSpec.describe User, type: :model do
      end
 
    describe "invalid user" do
-     let(:user_with_invalid_name) { build(:user, name: "") }
-     let(:user_with_invalid_email) { build(:user, email: "") }
+     let(:user_with_invalid_name) { FactoryGirl.build(:user, name: "") }
+     let(:user_with_invalid_email) { FactoryGirl.build(:user, email: "") }
 
      it "should be an invalid user due to blank name" do
        expect(user_with_invalid_name).to_not be_valid
@@ -101,7 +101,7 @@ RSpec.describe User, type: :model do
    end
 
    describe ".avatar_url" do
-      let(:known_user) { create(:user, email: "blochead@bloc.io") }
+      let(:known_user) { FactoryGirl.create(:user, email: "blochead@bloc.io") }
 
       it "returns the proper Gravatar url for a known email entity" do
         expected_gravatar = "http://gravatar.com/avatar/bb6d1172212c180cfbdb7039129d7b03.png?s=48"

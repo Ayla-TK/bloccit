@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Topic, type: :model do
-   let(:topic) { create(:topic) }
+   let(:topic) { FactoryGirl.create(:topic) }
    let(:public) { true }
 
 

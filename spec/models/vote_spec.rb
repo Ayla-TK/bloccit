@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Vote, type: :model do
-    let(:topic) { create(:topic) }
-    let(:user) { create(:user) }
-    let(:post) { create(:post) }
+    let(:topic) { FactoryGirl.create(:topic) }
+    let(:user) { FactoryGirl.create(:user) }
+    let(:post) { FactoryGirl.create(:post) }
     let(:vote) { Vote.create!(value: 1, post: post, user: user) }
 
    it { is_expected.to belong_to(:post) }

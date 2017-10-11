@@ -7,9 +7,9 @@ RSpec.describe Post, type: :model do
    let(:description) { RandomData.random_paragraph }
    let(:title) { RandomData.random_sentence }
    let(:body) { RandomData.random_paragraph }
-   let(:topic) { create(:topic) }
-   let(:user) { create(:user) }
-   let(:post) { create(:post) }
+   let(:topic) { FactoryGirl.create(:topic) }
+   let(:user) { FactoryGirl.create(:user) }
+   let(:post) { FactoryGirl.create(:post) }
 
    it { is_expected.to have_many(:comments) }
    it { is_expected.to have_many(:votes) }

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
-let(:my_user) { create(:user) }
+let(:my_user) { FactoryGirl.create(:user) }
    describe "GET new" do
      it "returns http success" do
        get :new
